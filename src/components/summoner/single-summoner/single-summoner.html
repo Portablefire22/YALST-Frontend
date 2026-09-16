@@ -1,1 +1,4 @@
-<app-summoner-profile-info [puuid]="" [rankedString]="" [summonerLevel]="" [summonerName]="" [tagLine]=""/>
+
+@if (summoner() != null) {
+  <app-summoner-profile-info [summoner]="summoner()!"/>
+}

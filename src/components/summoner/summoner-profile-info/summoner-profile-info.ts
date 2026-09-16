@@ -1,4 +1,5 @@
 import {Component, input} from '@angular/core';
+import {SummonerDto} from '../../../services/riot-service/dtos/summoner-dto';
 
 @Component({
   imports: [],
@@ -8,11 +9,5 @@ import {Component, input} from '@angular/core';
 })
 export class SummonerProfileInfo {
 
-
-  summonerLevel = input.required<number>();
-  summonerName = input.required<string>();
-  tagLine = input.required<string>();
-  rankedString = input.required<string>();
-  puuid = input.required<string>();
-
+  summoner = input.required<SummonerDto>();
 }
