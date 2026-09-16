@@ -1,0 +1,25 @@
+
+<div class="profile">
+  <div class="league-profile-icon">
+    <img src="https://cdn.communitydragon.org/@_version/profile-icon/@ProfileIcon"/>
+    <p>{{summonerLevel()}}</p>
+  </div>
+
+  <div class="profile-info">
+    <span><h1>{{summonerName()}}</h1><h1 class="lighter">#{{tagLine()}}</h1></span>
+    <div class="rank-container">
+      <h1>{{rankedString()}}</h1>
+      <!--@if (Rank != null)
+      {
+        <p>LeaguePoints LP</p>
+      }-->
+    </div>
+
+    @if (puuid() != null)
+    {
+<!--      <UpdateProfile Puuid="@Puuid" LastUpdated="@LastUpdated"></UpdateProfile>-->
+    }
+  </div>
+
+
+</div>

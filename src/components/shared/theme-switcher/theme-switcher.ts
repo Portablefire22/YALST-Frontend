@@ -1,6 +1,6 @@
 import {Component, DOCUMENT, Inject} from '@angular/core';
 import {HostListener} from '@angular/core';
-import {ThemeService} from '../../services/theme/theme-service';
+import {ThemeService} from '../../../services/theme/theme-service';
 
 
 

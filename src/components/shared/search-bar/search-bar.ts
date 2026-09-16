@@ -2,7 +2,7 @@ import {DOCUMENT, Component, Inject} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {HostListener} from '@angular/core';
-import {LocalStorageService} from '../../services/local-storage/local-storage-service';
+import {LocalStorageService} from '../../../services/local-storage/local-storage-service';
 
 @Component({
   imports: [],
