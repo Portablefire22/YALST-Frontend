@@ -1,0 +1,19 @@
+
+
+.theme-switcher {
+  position: fixed;
+  z-index: 1221;
+  right: 1em;
+  bottom: 4em;
+  background-color: var(--text-navbar-arrow);
+  width: 2em;
+  height: 2em;
+  border-radius: 1em;
+  cursor: pointer;
+  color: var(--background-color);
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+}
