@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {SingleSummoner} from '../../components/summoner/single-summoner/single-summoner';
+import {SingleSummoner} from '../../../components/summoner/single-summoner/single-summoner';
 
 @Component({
   imports: [

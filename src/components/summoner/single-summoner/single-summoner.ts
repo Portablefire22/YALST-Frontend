@@ -1,17 +1,15 @@
-import {Component, Inject, Input, input, signal, Signal, WritableSignal} from '@angular/core';
+import {Component, Inject, signal, WritableSignal} from '@angular/core';
 import {SummonerProfileInfo} from '../summoner-profile-info/summoner-profile-info';
-import {HostListener} from '@angular/core';
 import {RiotService} from '../../../services/riot-service/riot-service';
-import {map, Observable} from 'rxjs';
 import {SummonerDto} from '../../../services/riot-service/dtos/summoner-dto';
-import {AsyncPipe} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
-import {HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {MatchHistory} from '../match-history/match-history';
 
 @Component({
   imports: [
     SummonerProfileInfo,
+    MatchHistory,
   ],
   selector: 'app-single-summoner',
   styleUrl: './single-summoner.css',
@@ -37,7 +35,7 @@ export class SingleSummoner {
         next: (result) => {
           this.summoner.set(result);
         },
-        error: (err) => {
+        error: () => {
           router.navigate(["summoner/not-found"])
         }
       });
