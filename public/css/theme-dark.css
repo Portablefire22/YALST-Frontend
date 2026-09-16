@@ -1,6 +1,6 @@
 :root {
   --background-color: #343a40;
-  --foreground-color: var(--background-color);
+  --foreground-color: #ffffff;
   /* --foreground-color: #383f47; */
   --debug-color: hotpink;
   --text-navbar: #F5A9B8;

@@ -1,0 +1,19 @@
+.search-box {
+  margin: 0.25em auto 0.25em auto;
+  border-radius: 1em;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+
+  select, input {
+    height: 100%;
+    border: none;
+  }
+  input {
+    flex-grow: 1;
+  }
+}
+
+select, input, .search-box {
+  background-color: var(--foreground-color);
+}

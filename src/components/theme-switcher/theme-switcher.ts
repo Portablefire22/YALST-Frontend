@@ -23,7 +23,7 @@ export class ThemeSwitcher {
     this.updateIcon();
   }
 
-  updateIcon() {
+  private updateIcon() {
     const active = this.themeService.getActiveTheme();
     const iconElement = this.document.getElementById("theme-icon");
     if (iconElement == null) return;

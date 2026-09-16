@@ -31,6 +31,8 @@ a {
 .footer, .navbar {
   width: 100%;
   /* background-color: var(--debug-color); */
+  display: flex;
+  align-content: center;
 }
 
 .footer {
@@ -120,7 +122,6 @@ a {
 
 
 .navbar-brand {
-  float: left;
   font-weight: bold;
 }
 
@@ -276,4 +277,13 @@ td, th {
 .hiatus {
   color: var(--text-hiatus);
   font-weight: bold;
+}
+
+.btn {
+  border-radius: 1em;
+  border: 1px solid var(--horizontal-separator);
+  background-color: var(--text-link);
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 1rem;
 }
