@@ -10,7 +10,7 @@ import {MatchSpell} from '../match-spell/match-spell';
 import {MatchAugment} from '../match-augment/match-augment';
 import {DataDragonService} from '../../../../services/data-dragon/data-dragon-service';
 import {MatchInventory} from '../match-inventory/match-inventory';
-import {MatchParticipants} from '../match-participants/match-participants';
+import {MatchParticipants} from '../participants/match-participants/match-participants';
 
 @Component({
   imports: [

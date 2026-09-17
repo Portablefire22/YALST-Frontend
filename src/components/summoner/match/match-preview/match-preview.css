@@ -12,6 +12,13 @@
   overflow: hidden;
 }
 
+@media (max-width: 500px) {
+  .match-history-game {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .match-info {
   display: flex;
   flex-direction: row;

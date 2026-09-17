@@ -1,0 +1,9 @@
+<div class="game-participants-container">
+  @for (team of participantsByTeam; track $index) {
+    @if (doSubteams) {
+      <app-match-subteam [profileOwner]="profileOwner()" [participants]="team.participants" [teamId]="team.teamId"/>
+    } @else {
+      <app-match-team [profileOwner]="profileOwner()" [participants]="team.participants" [teamId]="team.teamId"/>
+    }
+  }
+</div>

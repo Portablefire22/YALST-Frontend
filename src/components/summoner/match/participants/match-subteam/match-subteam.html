@@ -1,0 +1,5 @@
+<div class="sub-team-col" id="{{teamName()}}">
+  @for (participant of participants(); track $index) {
+      <app-match-participant [participant]="participant" [isOwner]="participant == profileOwner()"/>
+  }
+</div>
