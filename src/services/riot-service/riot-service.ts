@@ -36,14 +36,21 @@ export class RiotService {
       uri += `&puuid=${puuid}`;
     }
     if (lastTimeStamp > 0) {
-      uri += `&lastTimeStamp=${lastTimeStamp}`;
+      uri += `&lastTimestamp=${lastTimeStamp}`;
     }
-    console.log(uri);
     return this.http.get<MatchDto[]>(uri);
   }
 
   getMatchParticipants(matchId: string): Observable<MatchParticipantDto[]> {
     return this.http.get<MatchParticipantDto[]>(`${this.apiUrl}/matches/${matchId}/participants`);
+  }
+
+  submitSummonerForUpdate(puuid: string) {
+    this.http.patch(`${this.apiUrl}/summoner/${puuid}`, puuid).subscribe((result) => {});
+  }
+
+  isSummonerInQueue(puuid: string): Observable<boolean> {
+    return this.http.get<boolean>(`${this.apiUrl}/summoner/${puuid}/is-updating`);
   }
 
 }

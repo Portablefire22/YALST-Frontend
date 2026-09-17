@@ -1,4 +1,4 @@
-import {Component, Inject, input, signal, WritableSignal} from '@angular/core';
+import {Component, DOCUMENT, HostListener, Inject, input, signal, WritableSignal} from '@angular/core';
 import {SummonerDto} from '../../../services/riot-service/dtos/summoner-dto';
 import {MatchDto} from '../../../services/riot-service/dtos/matches/match-dto/match-dto';
 import {RiotService} from '../../../services/riot-service/riot-service';
@@ -19,7 +19,10 @@ export class MatchHistory {
   games: WritableSignal<MatchDto[]> = signal([]);
   puuids: WritableSignal<string[]> = signal([]);
 
-  constructor(@Inject(RiotService) private riotService: RiotService) {
+  // Are we waitin for the last request?
+  waiting: boolean = false;
+
+  constructor(@Inject(RiotService) private riotService: RiotService, @Inject(DOCUMENT) private document: Document) {
 
   }
 
@@ -34,4 +37,26 @@ export class MatchHistory {
     });
   }
 
+  @HostListener("window:scroll", [])
+  onScroll() {
+    if ((window.innerHeight + window.scrollY) >= this.document.body.offsetHeight) {
+      this.requestMoreGames();
+    }
+  }
+
+  requestMoreGames() {
+    if (this.waiting) return;
+    this.waiting = true;
+
+    const lastGame = this.games().at(-1);
+    const lastTimeStamp = lastGame?.gameStartTimestamp;
+    this.riotService.getMatchesFromPuuids(this.puuids(), 10, lastTimeStamp).subscribe({
+      next: result => {
+        this.games.update(values => {
+          return [...values, ...result];
+        })
+        this.waiting = false;
+      }
+    })
+  }
 }
