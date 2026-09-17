@@ -17,7 +17,7 @@
 
     @if (summoner().puuid != null)
     {
-<!--      <UpdateProfile Puuid="@Puuid" LastUpdated="@LastUpdated"></UpdateProfile>-->
+      <app-update-summoner [puuid]="summoner().puuid" [lastUpdated]="summoner().revisionDate"/>
     }
   </div>
 

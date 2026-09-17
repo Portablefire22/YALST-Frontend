@@ -1,0 +1,9 @@
+
+<div class="update-container">
+  @if (isDisabled()) {
+    <button class="btn btn-primary" disabled>Update</button>
+  } @else {
+    <button class="btn btn-primary" (click)="updateSummoner()">Update</button>
+  }
+  <small>Last Updated: {{lastUpdatedDate().toLocaleString()}}</small>
+</div>

@@ -43,7 +43,6 @@ export class MatchParticipants {
       }
       team.participants.push(participant);
     }
-    console.log(this.participantsByTeam);
   }
 
   private getTeam(id: number): MatchTeamDto {
