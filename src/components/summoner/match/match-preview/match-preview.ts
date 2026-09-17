@@ -8,7 +8,6 @@ import {
 } from '../../../../services/riot-service/dtos/matches/match-participants-dto/match-participant-dto/match-participant-dto';
 import {MatchSpell} from '../match-spell/match-spell';
 import {MatchAugment} from '../match-augment/match-augment';
-import {TimeInterval} from 'rxjs';
 import {DataDragonService} from '../../../../services/data-dragon/data-dragon-service';
 
 @Component({
@@ -39,6 +38,9 @@ export class MatchPreview {
 
   gameDuration: WritableSignal<string> = signal("");
   gameDescription: WritableSignal<string> = signal("");
+
+  kda: WritableSignal<number> = signal(0);
+
   constructor(@Inject(RiotService) private riotService: RiotService, @Inject(DataDragonService) private dataDragonService: DataDragonService) {
   }
 
@@ -56,6 +58,10 @@ export class MatchPreview {
 
         this.doAugments.set(this.profileOwner()?.playerAugment1 != 0);
         this.winText.set(this.profileOwner()?.win ? "Victory" : "Defeat");
+
+        const kda = (this.profileOwner()!.kills + this.profileOwner()!.assists) / this.profileOwner()!.deaths;
+        this.kda.set(kda);
+
 
         const desc = this.dataDragonService.getQueueDescription(this.game().queueId);
         this.gameDescription.set(desc ?? this.game().queueId.toString());
@@ -102,4 +108,5 @@ export class MatchPreview {
     this.gameDuration.set(str);
   }
 
+  protected readonly Math = Math;
 }

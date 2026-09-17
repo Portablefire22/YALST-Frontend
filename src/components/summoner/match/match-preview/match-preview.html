@@ -24,12 +24,11 @@
       <div class="match-extra-info">
         <p>{{gameDescription()}}</p>
         <p>{{gameDuration()}}</p>
-  <!--      <p>@(DataDragon.GetQueueDescription(Game.Match.QueueId) ?? Game.Match.QueueId.ToString())</p>-->
       </div>
     </div>
     <div class="match-kda">
-  <!--    <p>@Game.ProfileOwner.Kills / @Game.ProfileOwner.Deaths / @Game.ProfileOwner.Assists</p>-->
-  <!--    <p><small>KDA: </small>@(Kda.ToString("0.00"))</p>-->
+      <p>{{profileOwner()!.kills}} / {{profileOwner()!.deaths}} / {{profileOwner()!.assists}}</p>
+      <p><small>KDA: </small>{{kda().toFixed(2)}}</p>
     </div>
 
     <div class="match-inventory">
