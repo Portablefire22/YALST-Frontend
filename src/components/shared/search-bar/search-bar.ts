@@ -19,8 +19,7 @@ export class SearchBar {
               @Inject(LocalStorageService) private storage: LocalStorageService) {
   }
 
-  @HostListener("window:load")
-  onLoad() {
+  ngOnInit() {
     this.searchBox = this.document.getElementById("search-box")! as HTMLInputElement;
     this.regionSelect = this.document.getElementById("search-region")! as HTMLSelectElement;
 

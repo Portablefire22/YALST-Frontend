@@ -23,7 +23,8 @@ export class MatchHistory {
 
   }
 
-  ngOnInit() {
+
+  ngOnChanges() {
     const puuids = this.summoner()!.map((sum) => sum.puuid);
     this.puuids.set(puuids);
     this.riotService.getMatchesFromPuuids(puuids,

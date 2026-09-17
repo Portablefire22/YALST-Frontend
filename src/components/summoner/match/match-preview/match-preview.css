@@ -54,11 +54,7 @@
   width: 7.5em;
 }
 
-.match-items {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  width: fit-content;
-}
+
 
 small {
   color: #a0a0a0;
@@ -77,11 +73,6 @@ small {
   color: #db6b63;
 }
 
-.match-inventory {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
 
 .spells {
   align-items: center;

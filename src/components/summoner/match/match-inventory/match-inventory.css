@@ -1,0 +1,10 @@
+.match-inventory {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.match-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: fit-content;
+}

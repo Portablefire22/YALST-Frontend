@@ -31,19 +31,9 @@
       <p><small>KDA: </small>{{kda().toFixed(2)}}</p>
     </div>
 
-    <div class="match-inventory">
-      <div class="match-items">
-  <!--      <MatchItem Version="@Version" ItemId="@Game.ProfileOwner.Item0"/>-->
-  <!--      <MatchItem Version="@Version" ItemId="@Game.ProfileOwner.Item1"/>-->
-  <!--      <MatchItem Version="@Version" ItemId="@Game.ProfileOwner.Item2"/>-->
-  <!--      <MatchItem Version="@Version" ItemId="@Game.ProfileOwner.Item3"/>-->
-  <!--      <MatchItem Version="@Version" ItemId="@Game.ProfileOwner.Item4"/>-->
-  <!--      <MatchItem Version="@Version" ItemId="@Game.ProfileOwner.Item5"/>-->
-      </div>
-  <!--    <MatchItem Version="@Version" ItemId="@Game.ProfileOwner.Item6"/>-->
-    </div>
+    <app-match-inventory [profileOwner]="profileOwner()!"/>
 
-  <!--  <GameParticipants Participants="Game.ParticipantsByTeam" ProfileOwner="@Game.ProfileOwner"/>-->
+    <app-match-participants [participants]="participants()" [profileOwner]="profileOwner()!"/>
 
   </div>
 }
