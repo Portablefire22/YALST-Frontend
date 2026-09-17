@@ -10,6 +10,9 @@
   --text-link: #5BCEFA;
   --card-background: #5BCEFA;
   --text-hiatus: #FF6961;
+
+  --primary-surface: #f1f3f4;
+  --secondary-surface: #fdffff;
 }
 
 img.svg {

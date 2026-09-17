@@ -1,1 +1,6 @@
-<p>match-history works!</p>
+
+<div class = "match-history">
+  @for (game of games(); track game.matchId) {
+    <app-match-preview [game]="game" [showProfileIcon]="false" [puuids]="puuids()"/>
+  }
+</div>

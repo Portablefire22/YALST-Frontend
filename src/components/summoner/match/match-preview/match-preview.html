@@ -1,0 +1,53 @@
+@if (profileOwner()) {
+  <div class="match-history-game">
+    @if (showProfileIcon()) {
+      <app-match-profile-picture [summoner]="profileOwner()!.summoner"/>
+    }
+    <div class="match-info">
+      <div class="match-quick-info">
+        <div class="image-container">
+          <img src="{{championIcon()}}"/>
+        </div>
+        <p id="{{winText()}}"> {{winText()}} </p>
+      </div>
+      <div class="spells">
+        <app-match-spell [spellId]="profileOwner()!.summoner1Id"/>
+        <app-match-spell [spellId]="profileOwner()!.summoner1Id"/>
+        @if (doAugments())
+        {
+          <app-match-augment [augmentId]="profileOwner()!.playerAugment1"/>
+          <app-match-augment [augmentId]="profileOwner()!.playerAugment2"/>
+          <app-match-augment [augmentId]="profileOwner()!.playerAugment3"/>
+          <app-match-augment [augmentId]="profileOwner()!.playerAugment4"/>
+<!--          <GameAugment Augment="@DataDragon.GetAugment(Game.ProfileOwner.PlayerAugment1)"/>-->
+<!--          <GameAugment Augment="@DataDragon.GetAugment(Game.ProfileOwner.PlayerAugment2)"/>-->
+<!--          <GameAugment Augment="@DataDragon.GetAugment(Game.ProfileOwner.PlayerAugment3)"/>-->
+<!--          <GameAugment Augment="@DataDragon.GetAugment(Game.ProfileOwner.PlayerAugment4)"/>-->
+        }
+      </div>
+      <div class="match-extra-info">
+  <!--      <p>@(DataDragon.GetQueueDescription(Game.Match.QueueId) ?? Game.Match.QueueId.ToString())</p>-->
+  <!--      <p>@((GameEnd - GameStart).ToString(@"mm\:ss"))</p>-->
+      </div>
+    </div>
+    <div class="match-kda">
+  <!--    <p>@Game.ProfileOwner.Kills / @Game.ProfileOwner.Deaths / @Game.ProfileOwner.Assists</p>-->
+  <!--    <p><small>KDA: </small>@(Kda.ToString("0.00"))</p>-->
+    </div>
+
+    <div class="match-inventory">
+      <div class="match-items">
+  <!--      <MatchItem Version="@Version" ItemId="@Game.ProfileOwner.Item0"/>-->
+  <!--      <MatchItem Version="@Version" ItemId="@Game.ProfileOwner.Item1"/>-->
+  <!--      <MatchItem Version="@Version" ItemId="@Game.ProfileOwner.Item2"/>-->
+  <!--      <MatchItem Version="@Version" ItemId="@Game.ProfileOwner.Item3"/>-->
+  <!--      <MatchItem Version="@Version" ItemId="@Game.ProfileOwner.Item4"/>-->
+  <!--      <MatchItem Version="@Version" ItemId="@Game.ProfileOwner.Item5"/>-->
+      </div>
+  <!--    <MatchItem Version="@Version" ItemId="@Game.ProfileOwner.Item6"/>-->
+    </div>
+
+  <!--  <GameParticipants Participants="Game.ParticipantsByTeam" ProfileOwner="@Game.ProfileOwner"/>-->
+
+  </div>
+}
