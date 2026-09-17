@@ -8,6 +8,8 @@ import {
 } from '../../../../services/riot-service/dtos/matches/match-participants-dto/match-participant-dto/match-participant-dto';
 import {MatchSpell} from '../match-spell/match-spell';
 import {MatchAugment} from '../match-augment/match-augment';
+import {TimeInterval} from 'rxjs';
+import {DataDragonService} from '../../../../services/data-dragon/data-dragon-service';
 
 @Component({
   imports: [
@@ -35,11 +37,14 @@ export class MatchPreview {
   participants: WritableSignal<MatchParticipantDto[]> = signal([]);
   profileOwner: WritableSignal<MatchParticipantDto | null> = signal(null);
 
-  constructor(@Inject(RiotService) private riotService: RiotService) {
+  gameDuration: WritableSignal<string> = signal("");
+  gameDescription: WritableSignal<string> = signal("");
+  constructor(@Inject(RiotService) private riotService: RiotService, @Inject(DataDragonService) private dataDragonService: DataDragonService) {
   }
 
   ngOnInit() {
     this.getParticipants();
+    this.setDuration();
 
   }
 
@@ -51,6 +56,9 @@ export class MatchPreview {
 
         this.doAugments.set(this.profileOwner()?.playerAugment1 != 0);
         this.winText.set(this.profileOwner()?.win ? "Victory" : "Defeat");
+
+        const desc = this.dataDragonService.getQueueDescription(this.game().queueId);
+        this.gameDescription.set(desc ?? this.game().queueId.toString());
 
         const championId = this.profileOwner()?.championId;
         const version = this.version;
@@ -75,6 +83,23 @@ export class MatchPreview {
   }
 
 
-
+  private setDuration() {
+    const ms = this.game().gameEndTimestamp - this.game().gameStartTimestamp;
+    let seconds = ms / 1000;
+    const hours = Math.floor(seconds / 3600);
+    seconds = seconds % 3600;
+    const minutes = Math.floor(seconds / 60);
+    seconds = Math.floor(seconds % 60);
+    let str = "";
+    if (hours > 0) {
+      if (hours < 10) str += "0";
+      str += `${hours}:`
+    }
+    if (minutes < 10) str += "0";
+    str += `${minutes}:`;
+    if (seconds < 10) str += "0";
+    str += `${seconds}`;
+    this.gameDuration.set(str);
+  }
 
 }

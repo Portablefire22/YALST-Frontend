@@ -12,22 +12,19 @@
       </div>
       <div class="spells">
         <app-match-spell [spellId]="profileOwner()!.summoner1Id"/>
-        <app-match-spell [spellId]="profileOwner()!.summoner1Id"/>
+        <app-match-spell [spellId]="profileOwner()!.summoner2Id"/>
         @if (doAugments())
         {
           <app-match-augment [augmentId]="profileOwner()!.playerAugment1"/>
           <app-match-augment [augmentId]="profileOwner()!.playerAugment2"/>
           <app-match-augment [augmentId]="profileOwner()!.playerAugment3"/>
           <app-match-augment [augmentId]="profileOwner()!.playerAugment4"/>
-<!--          <GameAugment Augment="@DataDragon.GetAugment(Game.ProfileOwner.PlayerAugment1)"/>-->
-<!--          <GameAugment Augment="@DataDragon.GetAugment(Game.ProfileOwner.PlayerAugment2)"/>-->
-<!--          <GameAugment Augment="@DataDragon.GetAugment(Game.ProfileOwner.PlayerAugment3)"/>-->
-<!--          <GameAugment Augment="@DataDragon.GetAugment(Game.ProfileOwner.PlayerAugment4)"/>-->
         }
       </div>
       <div class="match-extra-info">
+        <p>{{gameDescription()}}</p>
+        <p>{{gameDuration()}}</p>
   <!--      <p>@(DataDragon.GetQueueDescription(Game.Match.QueueId) ?? Game.Match.QueueId.ToString())</p>-->
-  <!--      <p>@((GameEnd - GameStart).ToString(@"mm\:ss"))</p>-->
       </div>
     </div>
     <div class="match-kda">

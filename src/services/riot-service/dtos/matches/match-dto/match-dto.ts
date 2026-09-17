@@ -14,10 +14,10 @@ export class MatchDto {
   gameStartTimestamp: number;
   gameType: string;
   platformId: string;
-  queueId: string;
+  queueId: number;
   tournamentCode: string | null;
 
-  constructor(dataVersion: string, gameVersion: string, matchId: string, participantCount: number, endOfGameResult: string, gameCreation: number, gameDuration: number, gameEndTimestamp: number, gameId: number, gameMode: string, gameName: string, gameStartTimestamp: number, gameType: string, platformId: string, queueId: string, tournamentCode: string | null) {
+  constructor(dataVersion: string, gameVersion: string, matchId: string, participantCount: number, endOfGameResult: string, gameCreation: number, gameDuration: number, gameEndTimestamp: number, gameId: number, gameMode: string, gameName: string, gameStartTimestamp: number, gameType: string, platformId: string, queueId: number, tournamentCode: string | null) {
     this.dataVersion = dataVersion;
     this.gameVersion = gameVersion;
     this.matchId = matchId;
