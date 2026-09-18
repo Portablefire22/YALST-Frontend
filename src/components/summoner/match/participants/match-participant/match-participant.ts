@@ -17,10 +17,13 @@ export class MatchParticipant {
 
   champIcon = signal("");
 
+  ownerText = signal("");
+
   constructor(@Inject(DataDragonService) private dataDragonService: DataDragonService) {
   }
 
   ngOnInit() {
+    this.ownerText.set(this.isOwner() ? "ProfileOwner" : this.participant().summoner.gameName);
     const version = this.dataDragonService.version;
     const championId = this.participant().championId;
     if (championId === 141) {

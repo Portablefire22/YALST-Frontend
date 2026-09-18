@@ -42,6 +42,7 @@ export class MatchPreview {
 
   gameDuration: WritableSignal<string> = signal("");
   gameDescription: WritableSignal<string> = signal("");
+  gameEnd: WritableSignal<Date | null> = signal(null);
 
   kda: WritableSignal<number> = signal(0);
 
@@ -65,6 +66,8 @@ export class MatchPreview {
 
         const kda = (this.profileOwner()!.kills + this.profileOwner()!.assists) / this.profileOwner()!.deaths;
         this.kda.set(kda);
+
+        this.gameEnd.set(new Date(this.game().gameEndTimestamp));
 
 
         const desc = this.dataDragonService.getQueueDescription(this.game().queueId);

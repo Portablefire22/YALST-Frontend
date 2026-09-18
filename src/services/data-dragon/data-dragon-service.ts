@@ -19,6 +19,7 @@ export class DataDragonService {
     ["5V5 RANKED FLEX GAMES"]: "Ranked Flex",
     ["5V5 RANKED SOLO GAMES"]: "Ranked Solo",
     ["5V5 DRAFT PICK GAMES"]: "Normal Draft",
+    ["SWIFTPLAY GAMES"]: "Swift Play"
   }
 
   private _queues: Dictionary<GameQueueDto> = {

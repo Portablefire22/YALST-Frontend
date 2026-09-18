@@ -24,6 +24,9 @@
       <div class="match-extra-info">
         <p>{{gameDescription()}}</p>
         <p>{{gameDuration()}}</p>
+        @if (gameEnd() !== null) {
+          <small>{{gameEnd()!.toLocaleString()}}</small>
+        }
       </div>
     </div>
     <div class="match-kda">
