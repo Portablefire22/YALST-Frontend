@@ -83,8 +83,8 @@ export class DataDragonService {
   }
 
   getSubTeamName(teamId: number): string | null{
-    if (teamId >= this._cherryTeams.length) return null;
-    return this._cherryTeams[teamId];
+    if (teamId > this._cherryTeams.length) return null;
+    return this._cherryTeams[teamId - 1];
   }
 
   getQueue(queueId: number): GameQueueDto | null {
