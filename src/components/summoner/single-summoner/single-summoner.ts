@@ -87,9 +87,6 @@ export class SingleSummoner {
         if (solo.length > 0) rankSolo = solo[0];
         if (flex.length > 0) rankFlex = flex[0];
 
-        console.log(rankSolo);
-        console.log(rankFlex);
-
         if (rankFlex !== null && rankSolo !== null) {
           const highest = RankDto.HighestRank(rankSolo, rankFlex);
           this.rank.set(highest);

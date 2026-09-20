@@ -8,15 +8,23 @@ import {
 } from './dtos/matches/match-participants-dto/match-participant-dto/match-participant-dto';
 import {Dictionary} from '../../interfaces/dictionary/dictionary';
 import {RankDto} from './dtos/matches/rank-dto/rank-dto';
+import {isDevMode} from '@angular/core';
+
 @Service()
 export class RiotService {
 
-  private apiUrl = 'http://localhost:5142';
+  private apiUrl;
 
   http: HttpClient;
 
   constructor() {
     this.http = inject(HttpClient);
+    if (isDevMode()) {
+      console.log("Development mode, pointing api to localhost");
+      this.apiUrl = 'http://localhost:5142';
+    } else {
+      this.apiUrl = "https://api.kitten.rs"
+    }
   }
 
 
