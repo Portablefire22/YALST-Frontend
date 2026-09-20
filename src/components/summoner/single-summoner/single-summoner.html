@@ -1,6 +1,6 @@
 
 @if (summoner() != null && summoners() != null) {
-  <app-summoner-profile-info [summoner]="summoner()!"/>
+  <app-summoner-profile-info [summoner]="summoner()!" [rank$]="rank()"/>
 
   <app-match-history [summoner]="summoners()!"/>
 }

@@ -16,11 +16,17 @@
 }
 
 .rank-container {
-  line-height: 1.5rem;
+  line-height: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
 }
 
-.rank-container p {
+.rank-container small {
   font-weight: bold;
+  margin: auto;
+  align-self: center;
+  font-size: 1.5rem;
 }
 
 img {

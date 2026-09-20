@@ -6,6 +6,8 @@ import {MatchDto} from './dtos/matches/match-dto/match-dto';
 import {
   MatchParticipantDto
 } from './dtos/matches/match-participants-dto/match-participant-dto/match-participant-dto';
+import {Dictionary} from '../../interfaces/dictionary/dictionary';
+import {RankDto} from './dtos/matches/rank-dto/rank-dto';
 @Service()
 export class RiotService {
 
@@ -28,6 +30,11 @@ export class RiotService {
       uri += `&region=${region}`;
     }
     return this.http.get<SummonerDto>(uri);
+  }
+
+  getSummonerRankedHistory(puuid: string) {
+    let uri = `${this.apiUrl}/summoner/${puuid}/rank`;
+    return this.http.get<Dictionary<RankDto[]>>(uri);
   }
 
   getMatchesFromPuuids(puuids: string[], count: number, lastTimeStamp: number = 0): Observable<MatchDto[]> {

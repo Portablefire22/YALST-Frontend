@@ -8,11 +8,12 @@
   <div class="profile-info">
     <span><h1>{{summoner().gameName}}</h1><h1 class="lighter">#{{summoner().tagLine}}</h1></span>
     <div class="rank-container">
-      <h1>Change me!</h1>
-      <!--@if (Rank != null)
-      {
-        <p>LeaguePoints LP</p>
-      }-->
+      @if (rank() == null) {
+        <h1>Unranked</h1>
+      } @else {
+        <h1>{{rank()}}</h1>
+        <small>{{lp()}} LP</small>
+      }
     </div>
 
     @if (summoner().puuid != null)
@@ -20,6 +21,4 @@
       <app-update-summoner [puuid]="summoner().puuid" [lastUpdated]="summoner().revisionDate"/>
     }
   </div>
-
-
 </div>
