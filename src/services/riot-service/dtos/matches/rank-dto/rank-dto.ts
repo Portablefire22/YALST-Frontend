@@ -24,7 +24,7 @@ export class RankDto {
 
   public static toRankedString(rank: RankDto): string {
     let result = rank.tier;
-    if (rank.tier == "Master" || rank.tier == "GrandMaster" || rank.tier == "Challenger") {
+    if (rank.tier == "Master" || rank.tier == "Grandmaster" || rank.tier == "Challenger") {
       return result;
     }
 
