@@ -63,7 +63,7 @@ export class RankDto {
         return 6;
       case "Master":
         return 7;
-      case "GrandMaster":
+      case "Grandmaster":
         return 8;
       case "Challenger":
         return 9;
