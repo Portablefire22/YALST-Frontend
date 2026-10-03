@@ -64,7 +64,11 @@ export class MatchPreview {
         this.doAugments.set(this.profileOwner()?.playerAugment1 != 0);
         this.winText.set(this.profileOwner()?.win ? "Victory" : "Defeat");
 
-        const kda = (this.profileOwner()!.kills + this.profileOwner()!.assists) / this.profileOwner()!.deaths;
+
+        let kda = (this.profileOwner()!.kills + this.profileOwner()!.assists);
+        if (this.profileOwner()!.deaths > 0) {
+          kda /= this.profileOwner()!.deaths;
+        }
         this.kda.set(kda);
 
         this.gameEnd.set(new Date(this.game().gameEndTimestamp));
