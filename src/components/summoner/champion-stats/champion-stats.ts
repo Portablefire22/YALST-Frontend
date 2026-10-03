@@ -1,4 +1,15 @@
-import {Component, DOCUMENT, ElementRef, Inject, inject, input, InputSignal, signal, ViewChild} from '@angular/core';
+import {
+  Component,
+  DOCUMENT,
+  ElementRef,
+  Inject,
+  inject,
+  input,
+  InputSignal,
+  signal,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 import {
   ChampionOverviewDto
 } from '../../../services/riot-service/dtos/champions/champion-overview-dto/champion-overview-dto';
@@ -28,7 +39,7 @@ export class ChampionStats {
               @Inject(DOCUMENT) private document: Document) {
   }
 
-  ngOnInit() {
+  ngOnChanges() {
     const version = this.dataDragonService.version;
     this.champIcon.set(`https://cdn.communitydragon.org/${version}/champion/${this.overview().championId}/square`);
     let kda = 0;
