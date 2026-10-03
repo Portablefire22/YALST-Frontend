@@ -33,6 +33,9 @@ export class ChampionOverview {
 
   ngOnChanges() {
     const puuids = this.summoner()!.map((sum) => sum.puuid);
+    this.queues.set([]);
+    this.selectedQueue.set(null);
+    this.overviews.set({});
 
     this.riotService.getChampionOverviewsFromPuuids(puuids).subscribe({
       next: result => {

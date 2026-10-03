@@ -31,11 +31,13 @@ export class ChampionStats {
   ngOnInit() {
     const version = this.dataDragonService.version;
     this.champIcon.set(`https://cdn.communitydragon.org/${version}/champion/${this.overview().championId}/square`);
+    let kda = 0;
     if (this.overview().deaths == 0) {
-      this.kda.set((this.overview().kills + this.overview().assists));
+      kda = ((this.overview().kills + this.overview().assists));
     } else {
-      this.kda.set((this.overview().kills + this.overview().assists) / this.overview().deaths);
+      kda = ((this.overview().kills + this.overview().assists) / this.overview().deaths);
     }
+    this.kda.set(kda);
 
     let wr = 0;
     if (this.overview().losses > 0) {
