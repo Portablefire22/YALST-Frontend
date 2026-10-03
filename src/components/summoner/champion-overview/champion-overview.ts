@@ -39,8 +39,9 @@ export class ChampionOverview {
 
     this.riotService.getChampionOverviewsFromPuuids(puuids).subscribe({
       next: result => {
-        let max = "";
-        let count = 0;
+
+        let counts: Dictionary<number> = {};
+
         for (const id in result) {
           this.queues.update(x => {
             return [...x, id];
@@ -49,17 +50,26 @@ export class ChampionOverview {
             this.selectedQueue.set(id);
           }
 
-          if (max === "") {
-            max = id;
-            count = 1;
-          } else {
-            if (result[id].length > count) {
-              max = id;
-              count = result[id].length;
-            }
+          let count = counts[id] ?? 0;
+          for (const champ of result[id]) {
+            count += champ.wins + champ.losses;
+          }
+          counts[id] = count;
+        }
+
+        let max = 0;
+        let maxId = "";
+        for (const id in counts) {
+          if (maxId === "") {
+            maxId = id;
+            max = counts[id];
+          } else if (counts[id] > max) {
+            maxId = id;
+            max = counts[id];
           }
         }
-        this.selectedQueue.set(max);
+
+        this.selectedQueue.set(maxId);
         this.overviews.set(result);
       },
       error: () => {}
