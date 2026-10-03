@@ -24,7 +24,9 @@ export class DataDragonService {
 
   private _queues: Dictionary<GameQueueDto> = {
     // Not included in docs for some reason
-    ["1750"]: new GameQueueDto(1750, "Rings of Wrath", "Arena", "16 player lobby")
+    ["1750"]: new GameQueueDto(1750, "Rings of Wrath", "Arena (3v3)", "16 player lobby"),
+    ["1740"]: new GameQueueDto(1740, "Rings of Wrath", "Arena (Bravery)", "16 player lobby"),
+    ["1700"]: new GameQueueDto(1700, "Rings of Wrath", "Arena (2v2)", "16 player lobby"),
   };
 
   private _summonerSpells: Dictionary<SummonerSpellDto> = {}
@@ -63,6 +65,7 @@ export class DataDragonService {
   private async getQueues() {
     const queues = await lastValueFrom(this.http.get<GameQueueDto[]>("https://static.developer.riotgames.com/docs/lol/queues.json"));
     for (const queue of queues) {
+      if (this._queues[`${queue.queueId}`]) continue;
       this._queues[`${queue.queueId}`] = queue;
     }
   }

@@ -4,6 +4,10 @@
   transition: background-color 100ms ease-in;
 }
 
+:root {
+  scrollbar-color: var(--primary-surface) transparent;
+}
+
 h1:focus {
   outline: none;
 }

@@ -1,0 +1,18 @@
+
+<div class="champ-stats">
+  <div class="image-container">
+    <img src="{{champIcon()}}"/>
+  </div>
+  <p class="name">{{overview().championName}}</p>
+
+  <div class="kda">
+    <p>{{kda().toFixed(2)}}</p>
+    <p class="extra">KDA</p>
+  </div>
+
+  <div class="winrate">
+    <p class="{{wrClass()}}">WR: {{winrate().toFixed(1)}}%</p>
+    <p class="extra">Total: {{overview().wins}}/{{overview().wins + overview().losses}}</p>
+  </div>
+
+</div>

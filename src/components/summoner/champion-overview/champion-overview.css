@@ -1,0 +1,45 @@
+
+.champion-overview-background {
+  background-color: var(--primary-surface);
+  margin: 0 1em 0 0.5em;
+  width: 20em;
+  height: 25em;
+  padding: 0.25em;
+  border-radius: 1rem;
+}
+
+@media (max-width: 1392px) {
+  .champion-overview-background {
+    display: none;
+  }
+}
+
+.champion-overview {
+  background-color: var(--secondary-surface);
+  border-radius: 1rem;
+  margin: 0.5em;
+  padding: 0.25em;
+  display:  flex;
+  flex-direction: column;
+  height: 23.5em;
+}
+
+select {
+  border: none;
+  border-bottom: 0.25em solid var(--primary-surface);
+  border-radius: 0.3em;
+  width: 100%;
+  background: none;
+  color: var(--text);
+}
+
+select:open {
+  background-color: var(--primary-surface);
+}
+
+
+.champion-list {
+  overflow-y: auto;
+  flex: 1 1 100%;
+}
+

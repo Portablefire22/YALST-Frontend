@@ -13,6 +13,11 @@
   --text-hiatus: #FDFD96;
   --card-background: #11b8f8;
 
+  --text-secondary: #5BCEFA;
+
+  --text-bad: #ed647f;
+  --text-good: #80ef80;
+
   --primary-surface: #30363a;
   --secondary-surface: #3a4045;
 }

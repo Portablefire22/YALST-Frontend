@@ -9,6 +9,7 @@ import {
 import {Dictionary} from '../../interfaces/dictionary/dictionary';
 import {RankDto} from './dtos/matches/rank-dto/rank-dto';
 import {isDevMode} from '@angular/core';
+import {ChampionOverviewDto} from './dtos/champions/champion-overview-dto/champion-overview-dto';
 
 @Service()
 export class RiotService {
@@ -54,6 +55,14 @@ export class RiotService {
       uri += `&lastTimestamp=${lastTimeStamp}`;
     }
     return this.http.get<MatchDto[]>(uri);
+  }
+
+  getChampionOverviewsFromPuuids(puuids: string[]): Observable<Dictionary<ChampionOverviewDto[]>> {
+    let uri = `${this.apiUrl}/champion/overview?`;
+    for (const puuid of puuids) {
+      uri += `&puuid=${puuid}`;
+    }
+    return this.http.get<Dictionary<ChampionOverviewDto[]>>(uri);
   }
 
   getMatchParticipants(matchId: string): Observable<MatchParticipantDto[]> {

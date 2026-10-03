@@ -11,6 +11,10 @@
   --card-background: #5BCEFA;
   --text-hiatus: #FF6961;
 
+
+  --text-bad: #ed647f;
+  --text-good: #80ef80;
+
   --primary-surface: #f1f3f4;
   --secondary-surface: #fdffff;
 }

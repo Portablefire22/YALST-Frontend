@@ -8,11 +8,13 @@ import {MatchHistory} from '../match-history/match-history';
 import {map} from 'rxjs';
 import {Dictionary} from '../../../interfaces/dictionary/dictionary';
 import {RankDto} from '../../../services/riot-service/dtos/matches/rank-dto/rank-dto';
+import {ChampionOverview} from '../champion-overview/champion-overview';
+import {SummonersContent} from '../summoners-content/summoners-content';
 
 @Component({
   imports: [
     SummonerProfileInfo,
-    MatchHistory,
+    SummonersContent,
   ],
   selector: 'app-single-summoner',
   styleUrl: './single-summoner.css',

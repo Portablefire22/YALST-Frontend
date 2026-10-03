@@ -1,0 +1,22 @@
+<div class="champion-overview-background">
+  <div class="champion-overview">
+    <h1>Champions</h1>
+    <select id="overview-queue-select" (change)="onSelectChange($event)" [value]="selectedQueue()">
+      @for (queue of queues(); track $index) {
+        @if (selectedQueue() === queue) {
+          <option selected value="{{queue}}">{{dataDragonService.getQueueDescription(Number(queue))}}</option>
+        } @else {
+          <option value="{{queue}}">{{dataDragonService.getQueueDescription(Number(queue))}}</option>
+        }
+      }
+    </select>
+    <div class="champion-list">
+
+      @if (selectedQueue() !== null) {
+        @for (champ of overviews()[selectedQueue()!]; track champ.championName) {
+          <app-champion-stats [overview]="champ"/>
+        }
+      }
+    </div>
+  </div>
+</div>

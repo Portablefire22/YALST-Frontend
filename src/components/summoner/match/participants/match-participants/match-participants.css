@@ -6,7 +6,6 @@
   height: 9em;
   overflow-y: auto;
   overflow-x: hidden;
-  scrollbar-color: var(--primary-surface) var(--secondary-surface);
 }
 
 @media (max-width: 986px) {

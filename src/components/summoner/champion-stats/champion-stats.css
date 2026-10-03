@@ -1,0 +1,83 @@
+
+.champ-stats {
+  height: 2em;
+  display: flex;
+  flex-direction: row;
+  margin: 0.25em;
+  align-items: center;
+  border-bottom: 2px solid var(--primary-surface);
+  padding-bottom: 0.25em;
+  overflow: hidden;
+}
+
+.name {
+  width: 5em;
+  overflow: hidden;
+}
+
+p {
+  position: relative;
+  overflow: hidden;
+}
+
+p::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: linear-gradient(90deg, transparent 3.5em, var(--secondary-surface));
+  pointer-events: none;
+}
+
+.kda {
+  padding: 0 2em;
+  width: 2em;
+}
+
+.winrate {
+  width: 10em;
+}
+
+.kda, .winrate{
+  display: flex;
+  flex-direction: column;
+  font-size: small;
+}
+
+.extra {
+  color: var(--text-secondary);
+}
+
+.kda p, .winrate p {
+  padding: 0 !important;
+  margin: 0;
+}
+
+.image-container {
+  width: 2em;
+  aspect-ratio: 1/1;
+  border-radius: 0.25em;
+  overflow: hidden;
+  flex-shrink: 0;
+  padding-right: 0.25em;
+}
+
+img {
+  height: 115%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.good {
+  color: var(--text-good);
+}
+
+.bad {
+  color: var(--text-bad);
+}
