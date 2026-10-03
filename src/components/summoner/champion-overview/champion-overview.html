@@ -13,7 +13,7 @@
     <div class="champion-list">
 
       @if (selectedQueue() !== null) {
-        @for (champ of overviews()[selectedQueue()!]; track champ.championName) {
+        @for (champ of overviews()[selectedQueue()!]; track $index) {
           <app-champion-stats [overview]="champ"/>
         }
       }
