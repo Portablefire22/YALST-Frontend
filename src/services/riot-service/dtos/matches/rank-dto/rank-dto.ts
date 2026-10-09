@@ -30,16 +30,16 @@ export class RankDto {
 
     switch (rank.rank) {
       case 1:
-        result += " I";
+        result += " IV";
         break;
       case 2:
-        result += " II";
-        break;
-      case 3:
         result += " III";
         break;
+      case 3:
+        result += " II";
+        break;
       case 4:
-        result += " IV";
+        result += " I";
         break;
     }
     return result;
