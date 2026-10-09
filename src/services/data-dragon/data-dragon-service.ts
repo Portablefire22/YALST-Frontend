@@ -27,6 +27,7 @@ export class DataDragonService {
     ["1750"]: new GameQueueDto(1750, "Rings of Wrath", "Arena (3v3)", "16 player lobby"),
     ["1740"]: new GameQueueDto(1740, "Rings of Wrath", "Arena (Bravery)", "16 player lobby"),
     ["1700"]: new GameQueueDto(1700, "Rings of Wrath", "Arena (2v2)", "16 player lobby"),
+    ["710"]: new GameQueueDto(710, "Summoner's Rift", "Ranked 5s", "Premade 5v5 Ranked lobby"),
   };
 
   private _summonerSpells: Dictionary<SummonerSpellDto> = {}
